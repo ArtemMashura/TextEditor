@@ -1,0 +1,63 @@
+﻿<Window x:Name="mainWin" x:Class="WpfApp4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp4"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowStyle="None" Closing="mainWin_Closing">
+    <Grid Name="myWindow" Background="Gray" Loaded="myWindow_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem x:Name="Save" Header="Save" Click="Save_Click" ></MenuItem>
+                <MenuItem Header="Save as" Click="MenuItem_Click_2"></MenuItem>
+                <MenuItem Header="Open" Click="MenuItem_Click_1"></MenuItem>
+                <Separator></Separator>
+                <MenuItem Header="Exit" Click="MenuItem_Click"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Info">
+                <MenuItem Header="About" Click="MenuItem_Click_3"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Style">
+                <MenuItem Header="Background Color">
+                    <MenuItem x:Name="StyleWhite" Header="White" Click="StyleWhite_Click"></MenuItem>
+                    <MenuItem x:Name="StyleGray" Header="Gray" Click="StyleGray_Click"></MenuItem>
+                    <MenuItem x:Name="StyleBlue" Header="Blue" Click="StyleBlue_Click"></MenuItem>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <RichTextBox x:Name="RichTB" Grid.Column="1" SelectionChanged="RichTB_SelectionChanged" LostFocus="RichTB_LostFocus">
+
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="RichTextBox"/>
+
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+
+            <StackPanel Grid.Column="0" Margin="10 5 10 0">
+                <Label Content="Размер шрифта" Background="#FFE46060"/>
+                <TextBox x:Name="Size_TB" TextWrapping="Wrap"  Grid.Row="1" Height="25"/>
+                <Button x:Name="FontSizeBTN" Content="Применить" Click="FontSizeBTN_Click"/>
+
+                <CheckBox x:Name="Bold_CB" Content="Жирный" Click="Bold_CB_Click"/>
+                <CheckBox x:Name="Italic_CB" Content="Курсив" Click="Italic_CB_Click"/>
+            </StackPanel>
+        </Grid>
+        
+        
+        
+    </Grid>
+</Window>
